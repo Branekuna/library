@@ -1,0 +1,37 @@
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+.App {
+  text-align: center;
+  background: hsl(259, 57%, 44%);
+  margin: 0 auto;
+  max-width: 100%;
+
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-gap: 8px;
+  grid-template-areas:
+    'h h h h h h h h h h h h'
+    'm m m m m m m m m m m m'
+    'm m m m m m m m m m m m'
+    'm m m m m m m m m m m m'
+    'm m m m m m m m m m m m'
+    'f f f f f f f f f f f f';
+}
+
+header {
+  grid-area: h;
+  background: hsl(169, 61%, 46%);
+}
+
+main {
+  grid-area: m;
+  background: hsl(133, 60%, 68%);
+}
+
+footer {
+  grid-area: f;
+  background: hsl(56, 80%, 81%);
+}

@@ -1,0 +1,14 @@
+.cardul {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+}
+
+section {
+  margin: 0px;
+}
+
+.iconAdd {
+  color: blue;
+  margin: 20px 0px;
+}

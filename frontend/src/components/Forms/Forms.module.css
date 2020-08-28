@@ -1,0 +1,23 @@
+form {
+  width: 100%;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+}
+
+input {
+  margin: 10px;
+}
+
+label {
+  margin: 10px;
+}
+
+.submitBtn {
+  display: block;
+  margin: 0 auto;
+}
+button {
+  display: block;
+  margin: 0 auto;
+}

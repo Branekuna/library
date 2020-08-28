@@ -1,0 +1,23 @@
+#COMPOSE STUFF
+SECRET_SALT_GEN=
+
+#BACKEND
+BACKEND_PORT=5000
+
+#FRONTEND
+FRONTEND_PORT=3000
+
+#MYSQL for Docker-compose.yaml
+SQL_PORT=3306
+MYSQL_ROOT_PASSWORD=rootaccesspass
+MYSQL_USER=someUName
+MYSQL_PASSWORD=somepasswordforuser
+MYSQL_DATABASE=nameofdatabase
+
+#MONGODB for Docker-compose.yaml
+MONGO_INITDB_ROOT_USERNAME=rootusername
+MONGO_INITDB_ROOT_PASSWORD=somepasswordforrootuser
+MONGO_USER=someusername
+MONGO_PASSWORD=somepasswordforuser
+MONGO_DB_NAME=nameofdatabase
+

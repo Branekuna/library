@@ -1,0 +1,33 @@
+.bookCard {
+  border: 2px solid hsl(259, 57%, 44%);
+  border-radius: 10px;
+  box-shadow: 4px 7px hsla(258, 48%, 22%, 0.616);
+  width: 400px;
+  background: hsl(76, 100%, 95%);
+  text-align: center;
+  padding: 10px 10px;
+  margin: 10px 20px;
+  display: inline-block;
+}
+
+.bookCardImg {
+  max-height: 300px;
+  max-width: 400px;
+  margin-top: 10px;
+}
+
+.bookCardItem {
+  margin: 10px;
+}
+
+.bookCardBtn {
+  display: inline-block;
+  margin: 10px;
+  width: 100px;
+  text-decoration: none;
+  list-style: none;
+  border: 1px solid black;
+  border-radius: 5px;
+  background-color: rgb(71, 187, 143);
+  cursor: pointer;
+}

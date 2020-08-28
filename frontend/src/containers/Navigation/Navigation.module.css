@@ -1,0 +1,38 @@
+.navdiv {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.navul {
+  display: flex;
+  flex-direction: row;
+  list-style: none;
+}
+
+.navbtn {
+  list-style-type: none;
+  background: hsl(211, 71%, 53%);
+  border: 1px solid hsl(212, 48%, 51%);
+  padding: 10px;
+  margin: 10px;
+  border-radius: 10px;
+}
+
+.navbtn:hover {
+  background-color: hsl(175, 65%, 58%);
+}
+
+.statusbtn {
+  list-style-type: none;
+  background: hsl(211, 71%, 53%);
+  border: 1px solid hsl(212, 48%, 51%);
+  padding: 10px;
+  margin: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+  color: hsl(210, 40%, 2%);
+}
+.statusbtn:hover {
+  background-color: hsl(175, 65%, 58%);
+}

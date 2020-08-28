@@ -1,0 +1,85 @@
+version: '2.4'
+
+services:
+  backend:
+    build:
+      context: ./backend
+      target: dev
+    command: nodemon --inspect=0.0.0.0:9229 init.js
+    ports:
+      - '${BACKEND_PORT}:${BACKEND_PORT}'
+      - '9229:9229'
+    networks:
+      - graphqlapp
+    depends_on:
+      - mongo
+      - mysql
+    volumes:
+      - ./backend:/opt/backend/src
+    environment:
+      - BACKEND_PORT=${BACKEND_PORT}
+      - FRONTEND_PORT=${FRONTEND_PORT}
+      - NODE_ENV=development
+      - SQL_PORT=${SQL_PORT}
+      - SQL_USER=${MYSQL_USER}
+      - SQL_PASSWORD=${MYSQL_PASSWORD}
+      - SQL_DB_NAME=${MYSQL_DATABASE}
+      - MONGO_USER=${MONGO_USER}
+      - MONGO_PASSWORD=${MONGO_PASSWORD}
+      - MONGO_DB_NAME=${MONGO_DB_NAME}
+      - SECRET_SALT_GEN=${SECRET_SALT_GEN}
+
+  frontend:
+    build:
+      context: ./frontend
+      target: dev
+    ports:
+      - '3000:3000'
+    networks:
+      - graphqlapp
+    depends_on:
+      - backend
+    volumes:
+      - ./frontend:/opt/frontend
+    environment:
+      - NODE_ENV=development
+      - BACKEND_PORT=${BACKEND_PORT}
+
+  mongo:
+    image: mongo
+    restart: always
+    container_name: mongodb
+    volumes:
+      - mongodb:/data/db
+    ports:
+      - 27017:27017
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: ${MONGO_INITDB_ROOT_USERNAME}
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_INITDB_ROOT_PASSWORD}
+    networks:
+      - graphqlapp
+
+  mysql:
+    image: mysql
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    healthcheck:
+      test: 'exit 0'
+    ports:
+      - 3306:3306
+    volumes:
+      - mysqldb:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+    networks:
+      - graphqlapp
+
+volumes:
+  mongodb:
+  mysqldb:
+
+networks:
+  graphqlapp:
